@@ -9,9 +9,10 @@ import Cart from "./Cart";
 import ErrorPage from "./ErrorPage";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
+import Header from "./components/Header";
 const App = () => {
   const theme = {
-    color: {
+    colors: {
       heading: "rgb(24 24 29)",
       border: "rgba(29, 29, 29,.8)",
       white: "#FFF",
@@ -37,13 +38,14 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <GlobalStyle />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<Products />} />
           <Route path="/singleProduct/:id" element={<SingleProduct />} />
-          <Route path="card" element={<Cart />} />
+          <Route path="/card" element={<Cart />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

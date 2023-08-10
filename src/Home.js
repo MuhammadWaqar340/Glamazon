@@ -1,13 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 
 const Home = () => {
-  return <wrapper classNmae="test">Home</wrapper>;
+  return <Wrapper className="test">Home</Wrapper>;
 };
 
-const wrapper = wrapper.section`
-background-color:${({ theme }) => theme.color.bg};
-width:30rem,
-height:20rem
+const Wrapper = styled.section`
+  background-color: ${({ theme }) => theme.colors.bg};
+  width: 30rem;
+  height: 20rem;
 `;
 
 export default Home;
