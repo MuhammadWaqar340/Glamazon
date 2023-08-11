@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
+import { CgMenu, CgClose } from "react-icons/cg";
 
 const Nav = () => {
+  const [menuIcon, setMenuIcon] = useState();
+
   const Nav = styled.nav`
     .navbar-lists {
       display: flex;
@@ -25,11 +28,6 @@ const Nav = () => {
         &:hover,
         &:active {
           color: ${({ theme }) => theme.colors.helper};
-        }
-
-        &:not(:last-child) {
-          /* Add this selector */
-          margin-right: 4.8rem;
         }
       }
     }
@@ -162,27 +160,44 @@ const Nav = () => {
       }
     }
   `;
+
   return (
     <Nav>
-      <div className="navbar">
+      <div className={menuIcon ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
           <li>
-            <NavLink to="/" className="navbar-link ">
+            <NavLink
+              to="/"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className="navbar-link ">
+            <NavLink
+              to="/about"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}
+            >
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/products" className="navbar-link ">
+            <NavLink
+              to="/products"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}
+            >
               Products
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" className="navbar-link ">
+            <NavLink
+              to="/contact"
+              className="navbar-link "
+              onClick={() => setMenuIcon(false)}
+            >
               Contact
             </NavLink>
           </li>
@@ -193,6 +208,20 @@ const Nav = () => {
             </NavLink>
           </li>
         </ul>
+
+        {/* two button for open and close of menu */}
+        <div className="mobile-navbar-btn">
+          <CgMenu
+            name="menu-outline"
+            className="mobile-nav-icon"
+            onClick={() => setMenuIcon(true)}
+          />
+          <CgClose
+            name="close-outline"
+            className="mobile-nav-icon close-outline"
+            onClick={() => setMenuIcon(false)}
+          />
+        </div>
       </div>
     </Nav>
   );
