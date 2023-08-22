@@ -1,5 +1,5 @@
 import HeroSection from "./components/HeroSection";
-import { useProductContext } from "./context/productContext";
+import { useProductContext } from "./context/ProductContext";
 
 const About = () => {
   const { myName } = useProductContext();
